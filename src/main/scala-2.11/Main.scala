@@ -8,7 +8,7 @@ object Main {
         throw new IllegalArgumentException("sizeはゼロ以上である必要があります")
       }
 
-      (for (i <- 0 to size) yield "a").mkString
+      (for (i <- 0 until size) yield "a").mkString
     }
   }
 
