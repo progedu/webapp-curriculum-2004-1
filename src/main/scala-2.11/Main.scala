@@ -1,5 +1,15 @@
+import scala.util.Try
+
 object Main {
 
-  def createString(size: Int): Try[String] = ???
+  def createString(size: Int): Try[String] = {
+    Try {
+      if(size < 0){
+        throw new IllegalArgumentException("sizeはゼロ以上である必要があります")
+      }
+
+      (for (i <- 0 until size) yield "a").mkString
+    }
+  }
 
 }
