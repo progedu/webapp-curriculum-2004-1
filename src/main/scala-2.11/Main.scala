@@ -1,10 +1,13 @@
-import scala.util.Try
+import scala.util.{Failure, Success, Try}
 
 object Main {
 
   def createString(size: Int): Try[String] = {
     Try {
-      require(size >= 0, "sizeはゼロ以上である必要があります")
+      if(size < 0){
+        throw new IllegalArgumentException("sizeはゼロ以上である必要があります")
+      }
+
       (for (i <- 0 to size) yield "a").mkString
     }
   }
